@@ -18,7 +18,6 @@
 /public/storage
 /storage/logs/*
 /storage/app/*
-/storage/framework/*
 /storage/framework/cache/*
 /storage/framework/sessions/*
 /storage/framework/views/*

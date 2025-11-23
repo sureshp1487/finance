@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
     <title>SELVAGANAPATHI FINANCE GROUPS - Best Loan Services in Chennai</title>
     <meta name="description" content="SELVAGANAPATHI FINANCE GROUPS offers best loan services in Chennai with low interest rates, quick approval for home loans, business loans, personal loans, vehicle loans & gold loans.">
     <meta name="keywords" content="selvaganapathi finance groups, loan services chennai, home loan chennai, business loan chennai, personal loan chennai, vehicle loan chennai, gold loan chennai, quick loan approval">

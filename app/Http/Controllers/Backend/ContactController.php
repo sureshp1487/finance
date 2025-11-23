@@ -57,7 +57,7 @@ class ContactController extends Controller
 
             // Send email
             Mail::send('emails.contact', $emailData, function($message) use ($request) {
-                $message->to('p.sureshkk4620@gmail.com')
+                $message->to('aruntech1996@gamil.com')
                         ->subject('New Loan Application - ' . $request->loan_type)
                         ->replyTo($request->email, $request->name);
             });

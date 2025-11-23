@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;   // <-- FIXED
+use App\Models\ContactSubmission;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
@@ -32,6 +33,18 @@ class ContactController extends Controller
         }
 
         try {
+            // Store in database with default 'pending' status
+            $contactSubmission = ContactSubmission::create([
+                'name' => $request->name,
+                'email' => $request->email,
+                'phone' => $request->phone,
+                'loan_amount' => $request->loan_amount,
+                'loan_type' => $request->loan_type,
+                'message' => $request->message,
+                'status' => ContactSubmission::STATUS_PENDING,
+            ]);
+
+            // Prepare email data
             $emailData = [
                 'name' => $request->name,
                 'email' => $request->email,
@@ -39,8 +52,10 @@ class ContactController extends Controller
                 'loan_amount' => $request->loan_amount,
                 'loan_type' => $request->loan_type,
                 'customer_message' => $request->message ?? 'No additional message provided.',
+                'submission_id' => $contactSubmission->id,
             ];
 
+            // Send email
             Mail::send('emails.contact', $emailData, function($message) use ($request) {
                 $message->to('p.sureshkk4620@gmail.com')
                         ->subject('New Loan Application - ' . $request->loan_type)
@@ -49,13 +64,14 @@ class ContactController extends Controller
 
             return response()->json([
                 'success' => true,
-                'message' => 'Application submitted successfully. We will contact you soon!'
+                'message' => 'Application submitted successfully. We will contact you soon!',
+                'submission_id' => $contactSubmission->id
             ]);
 
         } catch (\Exception $e) {
-            Log::error('Email sending failed: ' . $e->getMessage());
+            Log::error('Loan application submission failed: ' . $e->getMessage());
             return response()->json([
-                'error' => 'Failed to send email. Please try again later.'
+                'error' => 'Failed to submit application. Please try again later.'
             ], 500);
         }
     }

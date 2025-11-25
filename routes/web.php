@@ -9,6 +9,9 @@ $backend_controller_path ="App\Http\Controllers\Backend";
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/ui1', function () {
+    return view('frontend.ui1');
+});
 
 
 Route::get('/dashboard', function () {

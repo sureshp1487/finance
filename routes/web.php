@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Backend\ContactController;
+use App\Http\Controllers\Backend\EmployeeController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -37,4 +38,8 @@ Route::prefix('admin')
     Route::get('/contact-submissions/{contactSubmission}', [ContactController::class, 'show'])->name('contact.submissions.show');
     Route::put('/contact-submissions/{contactSubmission}/status', [ContactController::class, 'updateStatus'])->name('contact.submissions.update-status');
 });
+Route::middleware(['auth'])->group(function () {
+    Route::resource('employees', EmployeeController::class);
+});
+Route::get('/profile/view/{uid}', [EmployeeController::class, 'showPublicProfile'])->name('profile.public');
 require __DIR__.'/auth.php';

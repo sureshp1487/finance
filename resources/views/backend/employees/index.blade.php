@@ -46,7 +46,7 @@
                                             <img src="{{ asset('img/barcodes/'.$emp->profile->barcode_image) }}" alt="barcode" style="height: 30px; width: auto;">
                                         @endif
                                         
-    <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data={{ route('profile.public', $emp->profile->uid) }}" alt="QR" width="50">
+    <!-- <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data={{ route('profile.public', $emp->profile->uid) }}" alt="QR" width="50"> -->
 
                                     </td>
                                     <td>{{ $emp->profile->role ?? '-' }}</td>

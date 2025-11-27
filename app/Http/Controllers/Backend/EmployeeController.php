@@ -61,18 +61,18 @@ class EmployeeController extends Controller
         // PARAMETERS: getBarcode($data, $type, $widthFactor, $height)
         // 1 = Width factor (1 pixel wide per bar - Skinniest possible)
         // 40 = Height in pixels
-        // $barcodeData = $generator->getBarcode(
-        //     $url, 
-        //     $generator::TYPE_CODE_128, 
-        //     1, 
-        //     40
-        // );
         $barcodeData = $generator->getBarcode(
-    $url, 
-    $generator::TYPE_CODE_128, 
-    1,  // Width Factor: 1 (Minimum possible in generation)
-    30  // Height: 30 pixels
-);
+            $url, 
+            $generator::TYPE_CODE_128, 
+            2, 
+            80
+        );
+//         $barcodeData = $generator->getBarcode(
+//     $url, 
+//     $generator::TYPE_CODE_128, 
+//     1,  // Width Factor: 1 (Minimum possible in generation)
+//     30  // Height: 30 pixels
+// );
 
         $barcodeImageName = 'barcode_' . $request->employee_id . '.png';
         

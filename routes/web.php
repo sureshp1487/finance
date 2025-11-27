@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Backend\AttendanceController;
 use App\Http\Controllers\Backend\ContactController;
 use App\Http\Controllers\Backend\EmployeeController;
 use App\Http\Controllers\ProfileController;
@@ -42,4 +43,12 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('employees', EmployeeController::class);
 });
 Route::get('/profile/view/{uid}', [EmployeeController::class, 'showPublicProfile'])->name('profile.public');
+Route::middleware(['auth'])->group(function () {
+    // Daily Attendance Entry
+    Route::get('/attendance', [AttendanceController::class, 'index'])->name('attendance.index');
+    Route::post('/attendance', [AttendanceController::class, 'store'])->name('attendance.store');
+    
+    // Employee Report
+    Route::get('/attendance/report/{user_id}', [AttendanceController::class, 'report'])->name('attendance.report');
+});
 require __DIR__.'/auth.php';

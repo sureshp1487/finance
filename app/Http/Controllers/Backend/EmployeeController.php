@@ -15,7 +15,8 @@ class EmployeeController extends Controller
 {
     public function index()
     {
-        $employees = User::with('profile')->latest()->get();
+        // $employees = User::with('profile')->latest()->get();
+        $employees = User::with('profile')->paginate(10);
         return view('backend.employees.index', compact('employees'));
     }
 

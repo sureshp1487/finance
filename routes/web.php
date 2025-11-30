@@ -14,6 +14,9 @@ Route::get('/', function () {
 Route::get('/ui1', function () {
     return view('frontend.ui1');
 });
+Route::get('/calculator', function () {
+    return view('frontend.calculator');
+})->middleware(['auth'])->name('calculator');
 
 
 Route::get('/dashboard', function () {
@@ -38,10 +41,10 @@ Route::prefix('admin')
     Route::get('/contact-submissions', [ContactController::class, 'index'])->name('contact.submissions.index');
     Route::get('/contact-submissions/{contactSubmission}', [ContactController::class, 'show'])->name('contact.submissions.show');
     Route::put('/contact-submissions/{contactSubmission}/status', [ContactController::class, 'updateStatus'])->name('contact.submissions.update-status');
-});
+})->middleware(['auth']);
 Route::middleware(['auth'])->group(function () {
     Route::resource('employees', EmployeeController::class);
-});
+})->name('employees');
 Route::get('/profile/view/{uid}', [EmployeeController::class, 'showPublicProfile'])->name('profile.public');
 Route::middleware(['auth'])->group(function () {
     // Daily Attendance Entry

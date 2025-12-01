@@ -40,9 +40,11 @@
                             <div class="col-md-4">
                                 <label class="form-label">Role</label>
                                 <select name="role" class="form-select">
+                                    <option value="Collection Staff">Collection Staff</option>
                                     <option value="Employee">Employee</option>
                                     <option value="Manager">Manager</option>
-                                    <option value="Admin">Admin</option>
+                                    <option value="Branch Manager">Branch Manager</option>
+                                    <option value="Accounts Manager">Accounts Manager</option>
                                 </select>
                             </div>
                             <div class="col-md-4">

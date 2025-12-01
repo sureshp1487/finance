@@ -243,6 +243,7 @@
                                         @if($emp->profile && $emp->profile->barcode_image)
                                             <img src="{{ asset('img/barcodes/'.$emp->profile->barcode_image) }}" class="barcode-preview mt-1" alt="barcode">
                                         @endif
+                                           <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data={{ route('profile.public', $emp->profile->uid) }}" alt="QR" width="50">
                                     </td>
                                     <td>
                                         <span class="role-badge">{{ $emp->profile->role ?? 'Not Set' }}</span>
@@ -261,7 +262,7 @@
                                             <a href="{{ route('employees.edit', $emp->id) }}" class="action-btn btn btn-sm btn-outline-primary" title="Edit">
                                                 <i class="fas fa-edit"></i>
                                             </a>
-                                            <a href="#" class="action-btn btn btn-sm btn-outline-info" title="View">
+                                            <a href="{{ route('profile.public', $emp->profile->uid) }}" class="action-btn btn btn-sm btn-outline-info" title="View">
                                                 <i class="fas fa-eye"></i>
                                             </a>
                                             <form action="{{ route('employees.destroy', $emp->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this employee?');">

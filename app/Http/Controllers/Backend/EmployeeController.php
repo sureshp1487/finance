@@ -54,7 +54,7 @@ class EmployeeController extends Controller
         }
 
         $uid = uniqid('UID_');
-        $url = route('profile.public', $uid);
+        // $url = route('profile.public', $uid);
 
         // 3. Generate Barcode Image (REDUCED SIZE)
         $generator = new BarcodeGeneratorPNG();
@@ -62,12 +62,12 @@ class EmployeeController extends Controller
         // PARAMETERS: getBarcode($data, $type, $widthFactor, $height)
         // 1 = Width factor (1 pixel wide per bar - Skinniest possible)
         // 40 = Height in pixels
-        $barcodeData = $generator->getBarcode(
-            $url, 
-            $generator::TYPE_CODE_128, 
-            2, 
-            80
-        );
+       $barcodeData = $generator->getBarcode(
+    $request->employee_id,
+    $generator::TYPE_CODE_128,
+    3,      // width factor (thicker & clearer)
+    100     // height (good for printing)
+);
 //         $barcodeData = $generator->getBarcode(
 //     $url, 
 //     $generator::TYPE_CODE_128, 

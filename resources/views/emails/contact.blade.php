@@ -84,7 +84,7 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>Selvaganapathy Finance</h1>
+            <h1>Selvaganapathy Finance Group</h1>
             <p>New Loan Application Received</p>
         </div>
         
@@ -139,7 +139,7 @@
             <p>© {{ date('Y') }} Selvaganapathy Finance Group. All Rights Reserved.</p>
             <p>
                 <a href="mailto:sgfinancetech@gmail.com">sgfinancetech@gmail.com</a> | 
-                <a href="tel:7708689477">7708689477</a> |
+                <a href="tel:917358596377">+91 7358596377</a> |
             </p>
         </div>
     </div>

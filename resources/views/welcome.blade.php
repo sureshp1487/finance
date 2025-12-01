@@ -373,7 +373,7 @@
                             <i class="fas fa-phone-alt text-yellow-600 text-2xl mb-2"></i>
                             <h4 class="font-bold text-gray-800">Call Us</h4>
                             <p class="text-sm text-gray-600 mt-1 font-mono font-bold text-lg">
-                                +91 77086 89477
+                                +91 73585 96377
                             </p>
                             <p class="text-xs text-gray-500">Mon-Sat, 9am - 7pm</p>
                         </div>
@@ -389,12 +389,13 @@
                     <!-- Map -->
                     <div class="rounded-lg overflow-hidden shadow-lg border border-gray-200 flex-grow h-64 md:h-auto">
                         <iframe 
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.674936306509!2d80.2185!3d13.0569!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5266910795493b%3A0x8e831626017208!2sKodambakkam%2C%20Chennai%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1633000000000" 
+                            src="https://www.google.com/maps/embed?pb=!1m12!1m8!1m3!1d3031.437773099017!2d80.2193!3d13.0536!3m2!1i1024!2i768!4f13.1!2m1!1s%2324%2F1%2Cvellalar%20Street%2C%20Kodambakkam%2C%20Chennai%206000024%2C(%20opp%20To%20The%20Best%20Hospital%20)!5e1!3m2!1sen!2sin!4v1764579898067!5m2!1sen!2sin" 
                             width="100%" 
                             height="100%" 
                             style="border:0; min-height: 250px;" 
                             allowfullscreen="" 
-                            loading="lazy">
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade">
                         </iframe>
                     </div>
                 </div>
@@ -421,7 +422,7 @@
                 <div>
                     <h3 class="text-lg font-bold mb-4 text-yellow-400">Contact</h3>
                     <p class="text-sm text-gray-400">#24/1, Vellalar Street, Kodambakkam, Chennai - 600024</p>
-                    <p class="text-sm text-gray-400 mt-2">Ph: 77086 89477</p>
+                    <p class="text-sm text-gray-400 mt-2">Ph: 91 73585 96377</p>
                 </div>
             </div>
             <div class="border-t border-gray-700 mt-8 pt-6 text-center text-sm text-gray-500">
@@ -452,7 +453,7 @@
     </div>
 
     <!-- WhatsApp Float -->
-    <a href="https://wa.me/917708689477" target="_blank" class="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition flex items-center justify-center z-50 transform hover:scale-110">
+    <a href="https://wa.me/917358596377" target="_blank" class="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition flex items-center justify-center z-50 transform hover:scale-110">
         <i class="fab fa-whatsapp text-3xl"></i>
     </a>
 

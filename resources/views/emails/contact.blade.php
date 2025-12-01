@@ -84,7 +84,7 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>Arun Info Leasing & Finance Ltd.</h1>
+            <h1>Selvaganapathy Finance</h1>
             <p>New Loan Application Received</p>
         </div>
         
@@ -136,11 +136,10 @@
         
         <div class="footer">
             <p>This email was generated automatically from the website contact form.</p>
-            <p>© {{ date('Y') }} Arun Info Leasing & Finance Ltd. All Rights Reserved.</p>
+            <p>© {{ date('Y') }} Selvaganapathy Finance Group. All Rights Reserved.</p>
             <p>
-                <a href="mailto:info@aruninfofinance.com">info@aruninfofinance.com</a> | 
-                <a href="tel:9578995789">95789-95789</a> | 
-                <a href="tel:18004251255">1800-425-1255</a>
+                <a href="mailto:sgfinancetech@gmail.com">sgfinancetech@gmail.com</a> | 
+                <a href="tel:7708689477">7708689477</a> |
             </p>
         </div>
     </div>

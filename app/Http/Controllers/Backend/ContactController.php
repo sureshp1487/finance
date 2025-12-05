@@ -17,7 +17,7 @@ class ContactController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|email|max:255',
             'phone' => 'required|regex:/^[6-9]\d{9}$/',
-            'loan_amount' => 'required|numeric|min:10000|max:5000000',
+            'loan_amount' => 'required|numeric|min:0|max:5000000',
             'loan_type' => 'required|string|max:255',
             'message' => 'nullable|string|max:1000',
         ], [

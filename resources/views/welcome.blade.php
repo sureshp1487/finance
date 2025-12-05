@@ -174,11 +174,11 @@
                         <div>
                             <label class="block text-sm font-bold text-gray-700 mb-2 flex justify-between">
                                 <span>Loan Amount (₹)</span>
-                                <input type="number" id="loanAmountInput" min="50000" max="5000000" step="1000" class="text-blue-600 font-bold text-right border-b border-gray-300 focus:outline-none w-24" value="500000">
+                                <input type="number" id="loanAmountInput" min="10000" max="5000000" step="1000" class="text-blue-600 font-bold text-right border-b border-gray-300 focus:outline-none w-24" value="0">
                             </label>
-                            <input type="range" min="50000" max="5000000" step="10000" value="500000" id="loanAmount" class="w-full">
+                            <input type="range" min="0" max="5000000" step="10000" value="0" id="loanAmount" class="w-full">
                             <div class="flex justify-between text-xs text-gray-500 mt-1">
-                                <span>₹50K</span>
+                                <span>₹10K</span>
                                 <span>₹50L</span>
                             </div>
                             <p class="error-message text-xs mt-1" id="calculatorLoanAmountError"></p>
@@ -188,11 +188,11 @@
                         <div>
                             <label class="block text-sm font-bold text-gray-700 mb-2 flex justify-between">
                                 <span>Interest Rate (%)</span>
-                                <input type="number" id="interestRateInput" min="1" max="25" step="0.1" class="text-blue-600 font-bold text-right border-b border-gray-300 focus:outline-none w-16" value="8.5">
+                                <input type="number" id="interestRateInput" min="1" max="25" step="0.1" class="text-blue-600 font-bold text-right border-b border-gray-300 focus:outline-none w-16" value="0">
                             </label>
-                            <input type="range" min="1" max="25" step="0.1" value="8.5" id="interestRate" class="w-full">
+                            <input type="range" min="1" max="25" step="0.1" value="0" id="interestRate" class="w-full">
                             <div class="flex justify-between text-xs text-gray-500 mt-1">
-                                <span>1%</span>
+                                <span>0%</span>
                                 <span>25%</span>
                             </div>
                         </div>
@@ -201,9 +201,9 @@
                         <div>
                             <label class="block text-sm font-bold text-gray-700 mb-2 flex justify-between">
                                 <span>Loan Tenure (Years)</span>
-                                <input type="number" id="loanTenureInput" min="1" max="30" step="1" class="text-blue-600 font-bold text-right border-b border-gray-300 focus:outline-none w-16" value="5">
+                                <input type="number" id="loanTenureInput" min="1" max="30" step="1" class="text-blue-600 font-bold text-right border-b border-gray-300 focus:outline-none w-16" value="1">
                             </label>
-                            <input type="range" min="1" max="30" step="1" value="5" id="loanTenure" class="w-full">
+                            <input type="range" min="1" max="30" step="1" value="1" id="loanTenure" class="w-full">
                             <div class="flex justify-between text-xs text-gray-500 mt-1">
                                 <span>1 Yr</span>
                                 <span>30 Yrs</span>
@@ -314,14 +314,14 @@
                             <p class="error-message" id="phoneError">Please enter a valid phone number.</p>
                         </div>
 
-                        <!-- Loan Amount -->
+                        <!-- Loan Amount - UPDATED: 0 to 500000 -->
                         <div>
                             <label class="block text-gray-700 font-bold mb-1 text-sm">Loan Amount / கடன் தொகை</label>
                             <input type="number" id="loan_amount" name="loan_amount" 
-                                   min="10000" max="500000" step="1000" 
+                                   min="0" max="500000" step="1000" 
                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 transition" 
-                                   placeholder="Loan Amount" value="10000">
-                            <p class="error-message" id="loanAmountError">Please enter a valid loan amount between ₹10,000 and ₹50,00,000.</p>
+                                   placeholder="Loan Amount" value="0">
+                            <p class="error-message" id="loanAmountError">Please enter a valid loan amount between ₹0 and ₹5,00,000.</p>
                         </div>
 
                         <!-- Loan Type Dropdown -->
@@ -500,9 +500,9 @@
                         // Handle loan amount specific messages
                         if (field === 'loan_amount') {
                             if (errors[field][0].includes('at least')) {
-                                errorElement.textContent = 'Loan amount must be at least ₹50,000';
+                                errorElement.textContent = 'Loan amount must be at least ₹10,000';
                             } else if (errors[field][0].includes('exceed')) {
-                                errorElement.textContent = 'Loan amount cannot exceed ₹50,00,000';
+                                errorElement.textContent = 'Loan amount cannot exceed ₹5,00,000';
                             } else {
                                 errorElement.textContent = errors[field][0];
                             }
@@ -517,18 +517,18 @@
                 }
             }
             
-            // Function to validate loan amount
+            // Function to validate loan amount (0 to 500000)
             function validateLoanAmount(value, elementId, errorElementId) {
                 const errorElement = document.getElementById(errorElementId);
                 const inputElement = document.getElementById(elementId);
                 
-                if (value < 50000) {
-                    errorElement.textContent = 'Loan amount must be at least ₹50,000';
+                if (value < 0) {
+                    errorElement.textContent = 'Loan amount cannot be negative';
                     errorElement.style.display = 'block';
                     if (inputElement) inputElement.classList.add('input-error');
                     return false;
-                } else if (value > 5000000) {
-                    errorElement.textContent = 'Loan amount cannot exceed ₹50,00,000';
+                } else if (value > 500000) {
+                    errorElement.textContent = 'Loan amount cannot exceed ₹5,00,000';
                     errorElement.style.display = 'block';
                     if (inputElement) inputElement.classList.add('input-error');
                     return false;
@@ -545,16 +545,26 @@
                 validateLoanAmount(value, 'loan_amount', 'loanAmountError');
             });
             
-            // Real-time loan amount validation for calculator input
+            // Real-time loan amount validation for calculator input (calculator has different range)
             document.getElementById('loanAmountInput').addEventListener('input', function() {
                 const value = parseFloat(this.value);
-                const isValid = validateLoanAmount(value, 'loanAmountInput', 'calculatorLoanAmountError');
+                const errorElement = document.getElementById('calculatorLoanAmountError');
+                const inputElement = document.getElementById('loanAmountInput');
                 
-                // Also update form loan amount and validate it
-                const formLoanAmount = document.getElementById('loan_amount');
-                if (formLoanAmount && isValid) {
-                    formLoanAmount.value = value;
-                    validateLoanAmount(value, 'loan_amount', 'loanAmountError');
+                if (value < 10000) {
+                    errorElement.textContent = 'Loan amount must be at least ₹10,000';
+                    errorElement.style.display = 'block';
+                    if (inputElement) inputElement.classList.add('input-error');
+                    return false;
+                } else if (value > 5000000) {
+                    errorElement.textContent = 'Loan amount cannot exceed ₹50,00,000';
+                    errorElement.style.display = 'block';
+                    if (inputElement) inputElement.classList.add('input-error');
+                    return false;
+                } else {
+                    errorElement.style.display = 'none';
+                    if (inputElement) inputElement.classList.remove('input-error');
+                    return true;
                 }
             });
             
@@ -646,12 +656,12 @@
                         // Reset form
                         loanForm.reset();
                         
-                        // Reset loan amount to default
-                        document.getElementById('loan_amount').value = '10000';
+                        // Reset loan amount to default (0)
+                        document.getElementById('loan_amount').value = '0';
                         
-                        // Reset calculator
-                        document.getElementById('loanAmountInput').value = '10000';
-                        document.getElementById('loanAmount').value = '10000';
+                        // Reset calculator (keep calculator at its default - separate system)
+                        document.getElementById('loanAmountInput').value = '500000';
+                        document.getElementById('loanAmount').value = '500000';
                         calculateEMI();
                     } else if (data.errors) {
                         // Display validation errors
@@ -708,13 +718,13 @@
                     totalPayment.textContent = formatCurrency(Math.round(total));
                     totalInterest.textContent = formatCurrency(Math.round(interest));
                     
-                    // Update loan amount in form
-                    const formLoanAmount = document.getElementById('loan_amount');
-                    if (formLoanAmount) {
-                        formLoanAmount.value = principal;
-                        // Validate the updated amount
-                        validateLoanAmount(principal, 'loan_amount', 'loanAmountError');
-                    }
+                    // Update loan amount in form (optional - only if you want to sync them)
+                    // const formLoanAmount = document.getElementById('loan_amount');
+                    // if (formLoanAmount && principal <= 500000) {
+                    //     formLoanAmount.value = principal;
+                    //     // Validate the updated amount
+                    //     validateLoanAmount(principal, 'loan_amount', 'loanAmountError');
+                    // }
                 }
             }
             

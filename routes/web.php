@@ -18,7 +18,8 @@ Route::get('/ui1', function () {
     return view('frontend.ui1');
 });
 Route::get('/calculator', function () {
-    return view('frontend.calculator');
+    // return view('frontend.calculator');
+    return view('frontend.lone-calculator');
 })->middleware(['auth'])->name('calculator');
 
 

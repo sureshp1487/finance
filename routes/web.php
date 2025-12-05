@@ -11,6 +11,9 @@ $backend_controller_path ="App\Http\Controllers\Backend";
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/cal', function () {
+    return view('frontend.lone-calculator');
+});
 Route::get('/ui1', function () {
     return view('frontend.ui1');
 });

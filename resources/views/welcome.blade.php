@@ -389,7 +389,7 @@
                     <!-- Map -->
                     <div class="rounded-lg overflow-hidden shadow-lg border border-gray-200 flex-grow h-64 md:h-auto">
                         <iframe 
-                            src="https://www.google.com/maps/embed?pb=!1m12!1m8!1m3!1d3031.437773099017!2d80.2193!3d13.0536!3m2!1i1024!2i768!4f13.1!2m1!1s%2324%2F1%2Cvellalar%20Street%2C%20Kodambakkam%2C%20Chennai%206000024%2C(%20opp%20To%20The%20Best%20Hospital%20)!5e1!3m2!1sen!2sin!4v1764579898067!5m2!1sen!2sin" 
+                            src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3886.7149561535116!2d80.21665997507787!3d13.053807087269144!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTPCsDAzJzEzLjciTiA4MMKwMTMnMDkuMyJF!5e0!3m2!1sen!2sin!4v1764855994712!5m2!1sen!2sin" 
                             width="100%" 
                             height="100%" 
                             style="border:0; min-height: 250px;" 

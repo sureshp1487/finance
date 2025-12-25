@@ -354,15 +354,15 @@
                     <div class="skill-category-title">GDS/NDC Flight APIs</div>
                     <div class="skill-items">Sabre, Amadeus, Arajet, Mondee, TrvlNxt, Clarity</div>
                 </div>
-                
+{{--                 
                 <div class="skill-category">
                     <div class="skill-category-title">Development Methodologies</div>
                     <div class="skill-items">Agile, Scrum, Waterfall, Test-Driven Development</div>
-                </div>
+                </div> --}}
                 
                 <div class="skill-category">
                     <div class="skill-category-title">Payment Gateways</div>
-                    <div class="skill-items">Stripe, PayPal, Razorpay Integration</div>
+                    <div class="skill-items">Razorpay Integration</div>
                 </div>
                 
                 <div class="skill-category">

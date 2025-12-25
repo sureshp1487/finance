@@ -58,4 +58,7 @@ Route::middleware(['auth'])->group(function () {
     // Employee Report
     Route::get('/attendance/report/{user_id}', [AttendanceController::class, 'report'])->name('attendance.report');
 });
+Route::get('/resume-arun', function () {
+    return view('resume.resume');
+});
 require __DIR__.'/auth.php';

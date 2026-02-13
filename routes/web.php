@@ -6,7 +6,7 @@ use App\Http\Controllers\Backend\EmployeeController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
-$backend_controller_path ="App\Http\Controllers\Backend";
+$backend_controller_path = "App\Http\Controllers\Backend";
 
 Route::get('/', function () {
     return view('welcome');
@@ -41,7 +41,7 @@ Route::prefix('admin')
         Route::post('/contact/index', 'ContactController@submit')
             ->name('admin.contact.index');
     });
-    Route::prefix('admin')->group(function () {
+Route::prefix('admin')->group(function () {
     Route::get('/contact-submissions', [ContactController::class, 'index'])->name('contact.submissions.index');
     Route::get('/contact-submissions/{contactSubmission}', [ContactController::class, 'show'])->name('contact.submissions.show');
     Route::put('/contact-submissions/{contactSubmission}/status', [ContactController::class, 'updateStatus'])->name('contact.submissions.update-status');
@@ -54,11 +54,20 @@ Route::middleware(['auth'])->group(function () {
     // Daily Attendance Entry
     Route::get('/attendance', [AttendanceController::class, 'index'])->name('attendance.index');
     Route::post('/attendance', [AttendanceController::class, 'store'])->name('attendance.store');
-    
+
     // Employee Report
     Route::get('/attendance/report/{user_id}', [AttendanceController::class, 'report'])->name('attendance.report');
+    // Route::post('/attendance/note/store', [AttendanceController::class, 'storeNote'])
+    //     ->name('attendance.note.store');
+    Route::get('/attendance/notes/{user_id}', [AttendanceController::class, 'getNotes']);
+Route::post('/attendance/notes/store', [AttendanceController::class, 'storeNote']);
+Route::post('/attendance/notes/delete/{id}', 
+    [AttendanceController::class, 'deleteNote']);
+
+
 });
+
 Route::get('/resume-arun', function () {
     return view('resume.resume');
 });
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

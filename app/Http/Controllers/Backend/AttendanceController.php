@@ -17,9 +17,14 @@ class AttendanceController extends Controller
         $date = $request->input('date', date('Y-m-d'));
 
         // Get all employees (Role check is optional if you have roles)
-        $employees = User::where('email', '!=', 'admin@app.com')->with(['attendances' => function ($query) use ($date) {
-            $query->where('date', $date);
-        }])->get();
+        $employees = User::whereNotIn('email', [
+            'admin@app.com',
+            'superadmin@app.com'
+        ])
+            ->with(['attendances' => function ($query) use ($date) {
+                $query->whereDate('date', $date);
+            }])
+            ->get();
 
         return view('backend.attendance.index', compact('employees', 'date'));
     }
@@ -90,7 +95,7 @@ class AttendanceController extends Controller
         $notes = Note::where('created_on', $user_id)
             ->where('is_delete', 0)
             ->get();
-// dd($notes);
+        // dd($notes);
         return response()->json($notes);
     }
     public function storeNote(Request $request)
@@ -99,7 +104,7 @@ class AttendanceController extends Controller
             'user_id' => 'required',
             'note' => 'required|string'
         ]);
-// dd($request);
+        // dd($request);
         $note = Note::create([
             // 'user_id' => $request->user_id,
             'note' => $request->note,
@@ -107,22 +112,21 @@ class AttendanceController extends Controller
             'created_on' => $request->user_id,
             // 'is_delete' => 0
         ]);
-// dd($note);
+        // dd($note);
         return response()->json([
             'success' => true,
             'note' => $note
         ]);
     }
     public function deleteNote($id)
-{
-    $note = \App\Models\Note::findOrFail($id);
+    {
+        $note = \App\Models\Note::findOrFail($id);
 
-    $note->is_delete = 1;
-    $note->save();
+        $note->is_delete = 1;
+        $note->save();
 
-    return response()->json([
-        'success' => true
-    ]);
-}
-
+        return response()->json([
+            'success' => true
+        ]);
+    }
 }

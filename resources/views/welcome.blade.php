@@ -159,7 +159,7 @@
     </section>
 
     <!-- Loan Calculator Section -->
-    <section id="calculator" class="py-16 bg-blue-50">
+    {{-- <section id="calculator" class="py-16 bg-blue-50">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-10">
                 <h2 class="text-3xl font-bold text-blue-900">Loan EMI Calculator</h2>
@@ -233,7 +233,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
 
     <!-- Services / How it Works -->
     <section id="services" class="py-16 bg-gray-100">
